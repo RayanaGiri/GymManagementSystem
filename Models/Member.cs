@@ -45,6 +45,6 @@ namespace GymManagement.Models
         /// <summary>
         /// Gets or sets the membership type associated with the member.
         /// </summary>
-        public MembershipType MembershipType { get; set; }
+        public MembershipType? MembershipType { get; set; }
     }
 }

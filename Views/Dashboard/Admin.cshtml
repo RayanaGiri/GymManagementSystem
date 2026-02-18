@@ -1,0 +1,40 @@
+@model GymManagement.Models.ViewModels.AdminDashboardViewModel
+
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<h1>Admin Dashboard</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card text-white bg-primary mb-3">
+            <div class="card-header">Members</div>
+            <div class="card-body">
+                <h5 class="card-title">@Model.TotalMembers</h5>
+                <p class="card-text">Total registered members.</p>
+                <a asp-controller="Members" asp-action="Index" class="btn btn-light">Manage Members</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-success mb-3">
+            <div class="card-header">Trainers</div>
+            <div class="card-body">
+                <h5 class="card-title">@Model.TotalTrainers</h5>
+                <p class="card-text">Total available trainers.</p>
+                <a asp-controller="Trainers" asp-action="Index" class="btn btn-light">Manage Trainers</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-info mb-3">
+            <div class="card-header">Membership Types</div>
+            <div class="card-body">
+                <h5 class="card-title">@Model.TotalMembershipTypes</h5>
+                <p class="card-text">Total membership types defined.</p>
+                <a asp-controller="MembershipTypes" asp-action="Index" class="btn btn-light">Manage Types</a>
+            </div>
+        </div>
+    </div>
+</div>

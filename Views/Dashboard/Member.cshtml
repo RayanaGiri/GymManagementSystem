@@ -1,0 +1,45 @@
+@model GymManagement.Models.ViewModels.UserDashboardViewModel
+
+@{
+    ViewData["Title"] = "My Dashboard";
+}
+
+<h1>My Dashboard</h1>
+
+@if (Model.IsProfileComplete)
+{
+    <div class="card">
+        <div class="card-header">
+            My Profile
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Welcome, @Model.Member.FirstName @Model.Member.LastName!</h5>
+            <p class="card-text">
+                <strong>Email:</strong> @Model.Member.Email<br />
+                <strong>Phone:</strong> @Model.Member.PhoneNumber<br />
+                <strong>Joined:</strong> @Model.Member.JoinDate.ToShortDateString()<br />
+                <strong>Membership:</strong> @Model.Member.MembershipType.Name (@Model.Member.MembershipType.DurationInMonths months)
+            </p>
+            @* <a asp-controller="Members" asp-action="Edit" asp-route-id="@Model.Member.Id" class="btn btn-primary">Edit Profile</a> *@
+        </div>
+    </div>
+}
+else
+{
+    <div class="card">
+        <div class="card-header">
+            Welcome!
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Welcome, @User.Identity?.Name!</h5>
+            <p class="card-text">
+                You are logged in. Explore the gym's available trainers and services below.
+            </p>
+        </div>
+    </div>
+}
+
+<div class="mt-4">
+    <h3>Quick Links</h3>
+    <a asp-controller="Trainers" asp-action="Index" class="btn btn-outline-primary">View Trainers</a>
+</div>

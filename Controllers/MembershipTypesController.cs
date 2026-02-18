@@ -8,11 +8,14 @@ using Microsoft.EntityFrameworkCore;
 using GymManagement.Data;
 using GymManagement.Models;
 
+using Microsoft.AspNetCore.Authorization;
+
 namespace GymManagement.Controllers
 {
     /// <summary>
     /// Controller for managing membership types.
     /// </summary>
+    [Authorize(Roles = "Admin")]
     public class MembershipTypesController : Controller
     {
         private readonly GymContext _context;

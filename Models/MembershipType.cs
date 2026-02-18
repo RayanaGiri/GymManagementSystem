@@ -30,6 +30,6 @@ namespace GymManagement.Models
         /// <summary>
         /// Gets or sets the collection of members who have this membership type.
         /// </summary>
-        public ICollection<Member> Members { get; set; }
+        public ICollection<Member> Members { get; set; } = new List<Member>();
     }
 }
